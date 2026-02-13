@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartCliente Premium</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg: #0f172a;
+    --card: rgba(255,255,255,0.05);
+    --text: #e2e8f0;
+    --border: rgba(255,255,255,0.05);
+}
+
+.light-mode {
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1e293b;
+    --border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    padding: 30px 20px;
+    border-right: 1px solid var(--border);
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 20px;
+    background: linear-gradient(90deg,#3b82f6,#06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background: var(--card);
+}
+
+/* Main */
+.main {
+    flex: 1;
+    padding: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.toggle-btn {
+    background: linear-gradient(90deg,#3b82f6,#06b6d4);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Cards */
+.dashboard {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card-info {
+    flex: 1;
+    min-width: 220px;
+    background: var(--card);
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.card-info h3 {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Form & Table */
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+button {
+    background: linear-gradient(90deg,#3b82f6,#06b6d4);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+th {
+    opacity: 0.6;
+}
+
+tr {
+    border-top: 1px solid var(--border);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>SmartCliente</h2>
+    <ul>
+        <li>Dashboard</li>
+        <li>Clientes</li>
+        <li>Vendas</li>
+        <li>Relatórios</li>
+        <li>Configurações</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Painel de Controle</h1>
+        <button class="toggle-btn" onclick="toggleMode()">Alternar Tema</button>
+    </div>
+
+    <div class="dashboard">
+        <div class="card-info">
+            <h3>Total de Clientes</h3>
+            <p>245</p>
+        </div>
+        <div class="card-info">
+            <h3>Faturamento do Mês</h3>
+            <p>R$ 42.780</p>
+        </div>
+        <div class="card-info">
+            <h3>Ticket Médio</h3>
+            <p>R$ 175</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Novo Cliente</h2>
+        <input type="text" placeholder="Nome do Cliente">
+        <input type="text" placeholder="Telefone">
+        <input type="date">
+        <button>Salvar Cliente</button>
+    </div>
+
+    <div class="card">
+        <h2>Clientes Recentes</h2>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Última Compra</th>
+                <th>Total Gasto</th>
+            </tr>
+            <tr>
+                <td>João Silva</td>
+                <td>(11) 99999-9999</td>
+                <td>08/02/2026</td>
+                <td>R$ 2.450</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
+
+</body>
+</html>
