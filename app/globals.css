@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.6%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.6%;
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 13% 91%;
+  --muted-foreground: 217 33% 42%;
+  --accent: 220 90% 56%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 220 90% 56%;
+  --radius: 0.5rem;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.dark {
+  --background: 217 33% 11%;
+  --foreground: 0 0% 98%;
+  --card: 217 33% 17%;
+  --card-foreground: 0 0% 98%;
+  --primary: 220 90% 56%;
+  --primary-foreground: 217 33% 11%;
+  --secondary: 220 13% 91%;
+  --secondary-foreground: 217 33% 11%;
+  --muted: 217 33% 35%;
+  --muted-foreground: 220 13% 78%;
+  --accent: 220 90% 56%;
+  --accent-foreground: 217 33% 11%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 217 33% 11%;
+  --border: 217 33% 27%;
+  --input: 217 33% 27%;
+  --ring: 220 90% 56%;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
